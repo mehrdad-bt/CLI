@@ -45,8 +45,13 @@ void app(Led_t *led, char *input){
         token = strtok(NULL, " \n");        
     }
 
-    if(((led_check = 1) && (on == 1)) || ((led_check = 1) && (off == 1)) || status == 1 || help == 1 || exit == 1)
+    if(((led_check == 1) && (on == 1)) || ((led_check == 1) && (off == 1)) || status == 1 || help == 1 || exit == 1)
     {
+        if(help == 1)
+        {
+            printf("Type [led on,led off] to turn led on or off\nType [status] to see led status\nType [exit] to quit program\n");
+        }
+
         switch(led->state)
         {   
 
@@ -66,11 +71,6 @@ void app(Led_t *led, char *input){
                 printf("Led is off ! \n");
             }
 
-            if(help == 1)
-            {
-            printf("Type [led on,led off] to turn led on or off\nType [status] to see led status\nType [exit] to quit program\n");
-            }
-
         }
         break;
 
@@ -88,11 +88,6 @@ void app(Led_t *led, char *input){
             if(status == 1)
             {
                 printf("Led is on ! \n");
-            }
-
-            if(help == 1)
-            {
-            printf("Type [led on,led off] to turn led on or off\nType [status] to see led status\nType [exit] to quit program\n");
             }
             
         }
